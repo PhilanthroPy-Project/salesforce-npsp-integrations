@@ -1,0 +1,33 @@
+name: Publish to PyPI
+
+# Fires when a GitHub Release (tag v*.*.*) is published — pushing a tag alone
+# does nothing, matching the PhilanthroPy release convention.
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    strategy:
+      # Publish core first so the adapters resolve against it on PyPI.
+      max-parallel: 1
+      matrix:
+        package:
+          - packages/npsp-core
+          - packages/haystack-salesforce-npsp
+          - packages/mcp-server-salesforce-npsp
+    environment: pypi
+    permissions:
+      id-token: write  # OIDC — Trusted Publishing, no token/secret
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build ${{ matrix.package }}
+        run: |
+          python -m pip install --upgrade build
+          python -m build --outdir dist "${{ matrix.package }}"
+      - name: Publish ${{ matrix.package }}
+        uses: pypa/gh-action-pypi-publish@release/v1

@@ -1,0 +1,17 @@
+# Secrets — never commit (this project reads SF_USERNAME/SF_PASSWORD/SF_TOKEN)
+.env
+.env.*
+
+.venv/
+dist/
+build/
+*.egg-info/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# OS / editor cruft
+.DS_Store
+.vscode/
+.idea/

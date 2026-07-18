@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "haystack-salesforce-npsp"
+version = "0.1.0"
+description = "Haystack 2.x component that ingests Salesforce Nonprofit Success Pack (NPSP) donor data as Documents for RAG."
+authors = [{name = "Shivam Ashokbhai Lalakiya", email = "Shivamlalakiya151299@gmail.com"}]
+requires-python = ">=3.10"
+readme = "README.md"
+license = "MIT"
+keywords = ["haystack", "salesforce", "npsp", "nonprofit", "rag", "fundraising"]
+dependencies = [
+    "haystack-ai>=2.0.0",
+    "salesforce-npsp-core>=0.1.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[project.urls]
+Repository = "https://github.com/PhilanthroPy-Project/salesforce-npsp-integrations"
+
+[tool.hatch.build.targets.wheel]
+packages = ["haystack_salesforce_npsp"]

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp-server-salesforce-npsp"
+version = "0.1.0"
+description = "Model Context Protocol (MCP) server exposing Salesforce Nonprofit Success Pack (NPSP) donor data as tools."
+authors = [{name = "Shivam Ashokbhai Lalakiya", email = "Shivamlalakiya151299@gmail.com"}]
+requires-python = ">=3.10"
+readme = "README.md"
+license = "MIT"
+keywords = ["mcp", "model-context-protocol", "salesforce", "npsp", "nonprofit", "fundraising"]
+dependencies = [
+    "mcp>=1.2.0",
+    "salesforce-npsp-core>=0.1.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[project.scripts]
+salesforce-npsp-mcp = "mcp_salesforce_npsp.server:main"
+
+[project.urls]
+Repository = "https://github.com/PhilanthroPy-Project/salesforce-npsp-integrations"
+
+[tool.hatch.build.targets.wheel]
+packages = ["mcp_salesforce_npsp"]
