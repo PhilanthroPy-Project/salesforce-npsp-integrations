@@ -13,11 +13,18 @@ jobs:
       # Publish core first so the adapters resolve against it on PyPI.
       max-parallel: 1
       matrix:
-        package:
-          - packages/npsp-core
-          - packages/haystack-salesforce-npsp
-          - packages/mcp-server-salesforce-npsp
-    environment: pypi
+        include:
+          - package: packages/npsp-core
+            environment: pypi
+          - package: packages/haystack-salesforce-npsp
+            environment: pypi-haystack
+          - package: packages/mcp-server-salesforce-npsp
+            environment: pypi-mcp
+    # Each package uses a DISTINCT environment so its PyPI *pending* trusted
+    # publisher is unique on (owner, repo, workflow, environment). One shared
+    # environment collides — PyPI rejects the 2nd/3rd pending publisher with
+    # "already registered for a different project name".
+    environment: ${{ matrix.environment }}
     permissions:
       id-token: write  # OIDC — Trusted Publishing, no token/secret
     steps:
