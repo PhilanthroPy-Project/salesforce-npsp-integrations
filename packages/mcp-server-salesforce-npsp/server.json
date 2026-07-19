@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
   "name": "io.github.PhilanthroPy-Project/salesforce-npsp",
   "description": "MCP server exposing Salesforce Nonprofit Success Pack (NPSP) donor data as tools.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "url": "https://github.com/PhilanthroPy-Project/salesforce-npsp-integrations",
     "source": "github"
@@ -11,7 +11,7 @@
     {
       "registryType": "pypi",
       "identifier": "mcp-server-salesforce-npsp",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "transport": { "type": "stdio" },
       "environmentVariables": [
         { "name": "SF_USERNAME", "description": "Salesforce username", "isRequired": true },

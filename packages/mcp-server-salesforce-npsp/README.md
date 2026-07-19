@@ -1,3 +1,5 @@
+<!-- mcp-name: io.github.PhilanthroPy-Project/salesforce-npsp -->
+
 # MCP Server — Salesforce NPSP
 
 A [Model Context Protocol](https://modelcontextprotocol.io/) server that exposes

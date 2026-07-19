@@ -38,3 +38,7 @@ jobs:
           python -m build --outdir dist "${{ matrix.package }}"
       - name: Publish ${{ matrix.package }}
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # Monorepo: a release rebuilds all packages, but only bumped ones are
+          # new on PyPI. Skip versions already uploaded instead of failing.
+          skip-existing: true

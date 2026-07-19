@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mcp-server-salesforce-npsp"
-version = "0.1.0"
+version = "0.1.1"
 description = "Model Context Protocol (MCP) server exposing Salesforce Nonprofit Success Pack (NPSP) donor data as tools."
 authors = [{name = "Shivam Ashokbhai Lalakiya", email = "Shivamlalakiya151299@gmail.com"}]
 requires-python = ">=3.10"
